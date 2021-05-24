@@ -1,6 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from "react";
-import { ChevronDownIcon, AdjustmentsIcon } from "@heroicons/react/solid";
+import { Fragment } from "react";
 
 const Dropdown = ({ onDelete, onEdit, onDuplicate }) => {
   return (
