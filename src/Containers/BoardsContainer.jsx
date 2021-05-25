@@ -58,7 +58,7 @@ const BoardsContainer = ({ history }) => {
               />
             ) : (
               <div>
-                <p className="text-white text-2xl">
+                <p className="text-white xs:text-1xl sm:text-2xl px-2">
                   You don't have any boards{" "}
                 </p>
               </div>
@@ -68,7 +68,7 @@ const BoardsContainer = ({ history }) => {
             <div className="w-2/4 rounded-lg cursor-pointer hover:bg-lightblue bg-lightGrey text-lightBlue">
               <div
                 onClick={onOpenModalHandler}
-                className="flex flex-col sm:flex-row md:flex-row shadow-xl rounded-lg border-2 w-full px-3 py-2 hover:bg-lightblue"
+                className="flex justify-center md:justify-start text-center sm:flex-row md:flex-row shadow-xl rounded-lg border-2 w-full px-3 py-2 hover:bg-lightblue"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,9 @@ const BoardsContainer = ({ history }) => {
                     d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                   />
                 </svg>
-                <span className="ml-5 font-bold">Add Board</span>
+                <span className="hidden md:inline-block ml-5 font-bold">
+                  Add Board
+                </span>
               </div>
             </div>
           </div>
