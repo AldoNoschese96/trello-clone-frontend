@@ -2,8 +2,9 @@ import React from "react";
 
 //Final Form
 import { Form, Field } from "react-final-form";
+import Loader from "./Loader";
 
-const LoginBox = ({ onSubmit, toSignUp, hasError }) => {
+const LoginBox = ({ onSubmit, toSignUp, hasError, isLoading }) => {
   const validator = (values) => {
     const errors = {};
     if (!values.email) {
@@ -71,10 +72,10 @@ const LoginBox = ({ onSubmit, toSignUp, hasError }) => {
             <div className="mt-7 mb-1">
               <button
                 type="submit"
-                className="px-3 py-2 bg-green-400 rounded-2xl font-bold text-white w-full outline-none focus:outline-none"
-                disabled={submitting || pristine}
+                className="px-3 py-2 bg-green-400 flex justify-center rounded-2xl font-bold text-white w-full outline-none focus:outline-none"
+                disabled={submitting || pristine || isLoading}
               >
-                Sign in
+                {!isLoading ? "Sign in" : <Loader />}
               </button>
             </div>
             <div className="mt-5 mb-1 text-left">

@@ -20,6 +20,7 @@ const Login = () => {
 
   const user = useSelector((state) => state.auth.user);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isLoading = useSelector((state) => state.auth.isLoading);
   const error = useSelector((state) => state.auth.error);
 
   const onSubmitLoginHandler = async (formValues, handler = false) => {
@@ -28,7 +29,9 @@ const Login = () => {
         return dispatch(loginHandler(formValues));
       }
       dispatch(signUpHandler(formValues));
-    } catch (error) {}
+    } catch (error) {
+    } finally {
+    }
   };
 
   useEffect(() => {
@@ -50,6 +53,7 @@ const Login = () => {
             onSubmit={(values) => onSubmitLoginHandler(values, true)}
             toSignUp={() => setShowSignUp(true)}
             hasError={error}
+            isLoading={isLoading}
           />
         ) : (
           <SignUpBox
@@ -57,6 +61,7 @@ const Login = () => {
             onSubmit={(values) => onSubmitLoginHandler(values, false)}
             toSignIn={() => setShowSignUp(false)}
             hasError={error}
+            isLoading={isLoading}
           />
         )}
       </div>
